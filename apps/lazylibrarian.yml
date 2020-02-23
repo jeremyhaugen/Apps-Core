@@ -112,6 +112,14 @@
         option: download_dir
         value: '{{path.stdout}}/unionfs/sabnzbd/ebooks,{{path.stdout}}/unionfs/nzbget/ebooks,{{path.stdout}}/unionfs/rutorrent/ebooks,{{path.stdout}}/unionfs/qbittorrent/ebooks'
         state: present
+    
+    - name: Set minimum number of seeders
+      ini_file:
+        path: '/opt/appdata/{{pgrole}}/config.ini'
+        section: TORRENTS
+        option: numberofseeders
+        value: 1
+        state: present
 
     # FIRST TIME CONFIGURATION ####################################################
 
